@@ -36,3 +36,52 @@
     transform: rotate(360deg);
   }
 }
+
+.btn.btn-primary.btn-block{
+  background-color: #ffc525; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  text-shadow: #282c34;
+  display:flex;
+}
+div.navbar-nav.ml-auto{
+  display: flex;
+justify-content: flex-end;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(49, 8, 232);
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  color:#ffc525;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: rgb(240, 215, 23);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: rgb(234, 212, 11);
+}

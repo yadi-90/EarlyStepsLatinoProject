@@ -1,10 +1,15 @@
 import "./App.css";
+import { Routes, Route } from 'react-router-dom';
 import NavBar from "./components/nav-bar";
-import Students from "./components/students";
+// import Students from "./components/students";
 import Profile from "./components/profile";
 import { useAuth0 } from '@auth0/auth0-react';
 import Loading from "./components/loading";
-import { Route, Routes, Link } from 'react-router-dom';
+import Nav from "./components/2ndNav.js";
+
+
+
+
 
 function App() {
 
@@ -18,11 +23,22 @@ function App() {
     <div id="app" className="d-flex flex-column h-100">
       <NavBar />
       <div className="container flex-grow-1">
-      {!user ? <span>Hello from Techtonica From DEV!!!</span> : <span>Hello <Link to="api/me">{user.name}</Link></span> }
-      <Routes>
+        <Nav />
+      {/* {!user ? <span>Hello from Techtonica From DEV!!!</span> : <span>Hello <Link to="api/me">{user.name}</Link></span> } */}
+      {/* <Routes>
       <Route path="/" element={<Students user={user}/>} />
       <Route path="api/me" element={<Profile user={user}/>} />
-      </Routes>
+      </Routes> */}
+      {/* </div>
+      <div>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/assessment" element={<Assessment />}></Route>
+            <Route path="/resources" element={<Resources />}></Route>
+          </Routes>
+        </Router> */}
       </div>
     </div>
   );
