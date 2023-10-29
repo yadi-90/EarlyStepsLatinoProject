@@ -10,7 +10,7 @@ const app = express();
 const REACT_BUILD_DIR = path.join(__dirname, '..', 'client', 'build');
 app.use(express.static(REACT_BUILD_DIR));
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 
@@ -19,6 +19,32 @@ app.get('/', (req, res) => {
   //res.json({ message: 'Hello from My template ExpressJS' });
   res.sendFile(path.join(REACT_BUILD_DIR, 'index.html'));
 });
+
+app.get('/assessment', (req, res) => {
+  res.json({ message: 'Hello from the assessment page' })
+
+}
+);
+
+app.get('/resources', (req, res)=>{
+  res.json({ message: 'Hello from the resources page' })
+}
+);
+
+app.post('/api/updateChildAssessmentScore', (req, res) => {
+  const { childId, assessmentId, score } = req.body;
+  const sql = `UPDATE student_assessments SET score = $1 WHERE student_id = $2 AND assessment_id = $3`;
+  const values = [score, childId, assessmentId];
+  db.query(sql, values)
+    .then((result) => {
+      res.json(result.rows);
+    })  
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ error: 'Something went wrong' });
+    });
+});
+
 
 // create the get request
 app.get('/api/students', cors(), async (req, res) => {
