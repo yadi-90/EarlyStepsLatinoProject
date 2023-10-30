@@ -22,6 +22,7 @@ const Assessment = () => {
 
 {/* when button is clicked it doubles everything in the assessment page need to look ovet that  */}
 {/* I was able to fix that but now I am unable to get test to show up */}
+{/* was able to solve problem just a syntax error on the name components being called */}
                 <div>
                     <h3>Español</h3>
                     <button type="button" onClick={() => window.open('/AssessmentTestSpanish', '_blank')} className="assessmentbutton">Iniciar Evaluation</button>
