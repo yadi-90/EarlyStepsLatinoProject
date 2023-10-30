@@ -69,18 +69,19 @@ return (
        
         <h3>Communication Skills</h3> 
         <div>
-        <p> 1. Does your child use gestures, eye contact, and facial expressions appropriately for their age?</p>
-        <input type="radio" id="yes" name="communicationSkills" value="yes" onChange={e => setCommunicationSkills(e.target.value)} />
-    <label htmlFor="yes">Yes</label>
-    <input type="radio" id="no" name="communicationSkills" value="no" onChange={e => setCommunicationSkills(e.target.value)} />
-    <label htmlFor="no">No</label></div>
-    <div>
-    <p>2. Is your child able to express their needs and wants verbally?</p>
-    <input type="radio" id="yes" name="communicationSkills" value="yes" onChange={e => setCommunicationSkills(e.target.value)} />
-    <label htmlFor="yes">Yes</label>
-    <input type="radio" id="no" name="communicationSkills" value="no" onChange={e => setCommunicationSkills(e.target.value)} />
-    <label htmlFor="no">No</label>
-    </div>
+  <p>1. Does your child use gestures, eye contact, and facial expressions appropriately for their age?</p>
+  <input type="radio" id="yes-communicationSkills-1" name="communicationSkills" value="yes" onChange={e => setCommunicationSkills(e.target.value)} />
+  <label htmlFor="yes-communicationSkills-1">Yes</label>
+  <input type="radio" id="no-communicationSkills-1" name="communicationSkills" value="no" onChange={e => setCommunicationSkills(e.target.value)} />
+  <label htmlFor="no-communicationSkills-1">No</label>
+</div>
+<div>
+  <p>2. Is your child able to express their needs and wants verbally?</p>
+  <input type="radio" id="yes-communicationSkills-2" name="communicationSkills" value="yes" onChange={e => setCommunicationSkills(e.target.value)} />
+  <label htmlFor="yes-communicationSkills-2">Yes</label>
+  <input type="radio" id="no-communicationSkills-2" name="communicationSkills" value="no" onChange={e => setCommunicationSkills(e.target.value)} />
+  <label htmlFor="no-communicationSkills-2">No</label>
+</div>
     </div>
     <div>
         <h3>Social Interaction</h3>
