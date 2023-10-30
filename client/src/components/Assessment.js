@@ -33,7 +33,7 @@ const Assessment = () => {
           </p>
           <h1>Instructions:</h1>
           <ol>
-            <li><bold>Prepare a Quiet Environment:</bold>Find a quiet and comfortable space where you and your child can focus without distractions.</li>
+            <li>Prepare a Quiet Environment:Find a quiet and comfortable space where you and your child can focus without distractions.</li>
             <li>Gather Necessary Materials:Have any materials, toys, or items mentioned in the assessment readily available.</li>
             <li>Choose a Time When Your Child is Calm:Opt for a time when your child is typically calm and alert. Avoid times when they are hungry, tired, or irritable.</li>
             <li>Engage with Your Child:Encourage your child to participate in the activities outlined in the assessment. Make it a positive and engaging experience.</li>

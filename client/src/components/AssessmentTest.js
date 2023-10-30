@@ -22,7 +22,7 @@ const [SleepPatterns, setSleepPatterns] = useState(0);
 const [EmotionalRegulation, setEmotionalRegulation] = useState(0);
 const [SelfAwareness, setSelfAwareness] = useState(0);
 const [InterestandFocus, setInterestandFocus] = useState(0);
-
+return (
 <form>
     <div>
         <h1>Assessment Test</h1>
@@ -42,7 +42,7 @@ const [InterestandFocus, setInterestandFocus] = useState(0);
     <label htmlFor="no">No</label>
     </div>
 </form>
-
+);
 }
 
 export default AssessmentTest;
