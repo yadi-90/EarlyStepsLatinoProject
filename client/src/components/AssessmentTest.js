@@ -41,6 +41,14 @@ return (
     <input type="radio" id="no" name="socialInteraction" value="no" onChange={e => setSocialInteraction(e.target.value)} />
     <label htmlFor="no">No</label>
     </div>
+    <div>
+        <h3>Repetitive Behavior</h3>
+        <p>Does your child engage in repetitive behaviors, such as hand-flapping or rocking?</p>
+        <input type="radio" id="yes" name="repetitiveBehavior" value="yes" onChange={e => setRepetitiveBehavior(e.target.value)} />
+    <label htmlFor="yes">Yes</label>
+    <input type="radio" id="no" name="repetitiveBehavior" value="no" onChange={e => setRepetitiveBehavior(e.target.value)} />
+    <label htmlFor="no">No</label>
+    </div>
 </form>
 );
 }

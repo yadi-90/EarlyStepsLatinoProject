@@ -14,7 +14,9 @@ const Assessment = () => {
       <div className="buttonsassessment">
                 <div>
         <h3>English</h3>
-        <button type="button" onClick={() => setShowAssessment(true)} className="assessmentbutton">Begin Assessment</button>
+        <button type="button" onClick={() => window.open('/AssessmentTest', '_blank')} className="assessmentbutton">Begin Assessment</button>
+{/* https://stackoverflow.com/questions/30202755/react-router-open-link-in-new-tab */}
+{/* i checked other resources to make sure I can have a new window open when the button is press */}
                 </div>        
 
 {/* when button is clicked it doubles everything in the assessment page need to look ovet that  */}
