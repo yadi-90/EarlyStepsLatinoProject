@@ -1,4 +1,5 @@
 import AssessmentTest from './AssessmentTest';
+import AssessmentTestSpanish from '/AssessmentTestSpanish';
 import React, {useState} from 'react';
 
 
@@ -23,7 +24,7 @@ const Assessment = () => {
 {/* I was able to fix that but now I am unable to get test to show up */}
                 <div>
                     <h3>Español</h3>
-                    <button className="assessmentbutton">Iniciar el Assessment</button>
+                    <button type="button" onClick={() => window.open('/AssessmentTestSpanish', '_blank')} className="assessmentbutton">Iniciar Evaluation</button>
                 </div>
                 </div>
       <div>
