@@ -9,7 +9,7 @@ const Assessment = () => {
       <div class="buttonsassessment">
                 <div>
         <h3>English</h3>
-                <button class="assessmentbutton">Begin Assessment</button>
+                <button onclick="" class="assessmentbutton">Begin Assessment</button>
                 </div>
                 <div>
                     <h3>Español</h3>
