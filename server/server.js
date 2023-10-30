@@ -33,7 +33,7 @@ app.get('/resources', (req, res)=>{
 
 app.post('/api/updateChildAssessmentScore', (req, res) => {
   const { childId, assessmentId, score } = req.body;
-  const sql = `UPDATE student_assessments SET score = $1 WHERE student_id = $2 AND assessment_id = $3`;
+  const sql = `UPDATE child_assessments SET score = $1 WHERE child_id = $2 AND assessment_id = $3`;
   const values = [score, childId, assessmentId];
   db.query(sql, values)
     .then((result) => {
