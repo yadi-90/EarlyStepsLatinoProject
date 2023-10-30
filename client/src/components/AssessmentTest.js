@@ -23,6 +23,7 @@ const [EmotionalRegulation, setEmotionalRegulation] = useState(0);
 const [SelfAwareness, setSelfAwareness] = useState(0);
 const [InterestandFocus, setInterestandFocus] = useState(0);
 return (
+    <div>
 <form>
     <div>
         <h1>Assessment Test</h1>
@@ -50,6 +51,7 @@ return (
     <label htmlFor="no">No</label>
     </div>
 </form>
+    </div>
 );
 }
 

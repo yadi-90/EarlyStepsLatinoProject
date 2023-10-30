@@ -9,6 +9,7 @@ import Nav from "./components/2ndNav.js";
 import Home from './components/Home';
 import Assessment from './components/Assessment.js';
 import Resources from './components/Resources.js';
+import AssessmentTest from './components/AssessmentTest.js';
 
 
 
@@ -30,6 +31,7 @@ function App() {
         <Routes>
   <Route path="/" element={<Home />} />
   <Route path="/assessment" element={<Assessment />} />
+  <Route path="/AssessmentTest" element={<AssessmentTest />} />
   <Route path="/resources" element={<Resources />} />
 </Routes>
         {/* <img src ="https://images.unsplash.com/photo-1616543791139-fdca422b7ef7?auto=format&fit=crop&q=80&w=2787&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D "></img> */}
