@@ -6,6 +6,16 @@ const Assessment = () => {
       <div className="assessmenttitle"> 
         <h3> Assessment</h3>
       </div>
+      <div class="buttonsassessment">
+                <div>
+        <h3>English</h3>
+                <button class="assessmentbutton">Begin Assessment</button>
+                </div>
+                <div>
+                    <h3>Español</h3>
+                    <button class="assessmentbutton">Iniciar el Assessment</button>
+                </div>
+                </div>
       <div>
         <br></br>
         <br></br>
@@ -32,6 +42,9 @@ const Assessment = () => {
             Remember, you are not alone in this journey. Your care and attention play a vital role in supporting your child's growth. If you have any questions or need assistance, feel free to reach out.
             </p>
             </div>
+            <br></br>
+            <br></br>
+
       </div>
     </div>
   );
