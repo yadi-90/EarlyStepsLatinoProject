@@ -1,5 +1,5 @@
-import AssessmentTest from './AssessmentTest';
-import AssessmentTestSpanish from '/AssessmentTestSpanish';
+import AssessmentTest from './AssessmentTest.js';
+import AssessmentTestSpanish from './AssessmentTestSpanish.js';
 import React, {useState} from 'react';
 
 
@@ -58,6 +58,7 @@ const Assessment = () => {
 
       </div>
       {showAssessment ? <AssessmentTest /> : null}
+      {showAssessment ? <AssessmentTestSpanish /> : null}
     </div>
   );
 }

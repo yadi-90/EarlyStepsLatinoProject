@@ -50,6 +50,10 @@ return (
     <input type="radio" id="no" name="repetitiveBehavior" value="no" onChange={e => setRepetitiveBehavior(e.target.value)} />
     <label htmlFor="no">No</label>
     </div>
+    <div>
+        <h3>Sensory Sensitivity</h3>
+        <p> </p>
+    </div>
 </form>
     </div>
 );
