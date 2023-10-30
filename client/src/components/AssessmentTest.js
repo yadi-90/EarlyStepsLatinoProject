@@ -75,13 +75,6 @@ return (
   <input type="radio" id="no-communicationSkills-1" name="communicationSkills" value="no" onChange={e => setCommunicationSkills(e.target.value)} />
   <label htmlFor="no-communicationSkills-1">No</label>
 </div>
-<div>
-  <p>2. Is your child able to express their needs and wants verbally?</p>
-  <input type="radio" id="yes-communicationSkills-2" name="communicationSkills" value="yes" onChange={e => setCommunicationSkills(e.target.value)} />
-  <label htmlFor="yes-communicationSkills-2">Yes</label>
-  <input type="radio" id="no-communicationSkills-2" name="communicationSkills" value="no" onChange={e => setCommunicationSkills(e.target.value)} />
-  <label htmlFor="no-communicationSkills-2">No</label>
-</div>
     </div>
     <div>
         <h3>Social Interaction</h3>
@@ -91,13 +84,6 @@ return (
     <label htmlFor="yes">Yes</label>
     <input type="radio" id="no" name="socialInteraction" value="no" onChange={e => setSocialInteraction(e.target.value)} />
     <label htmlFor="no">No</label></div>
-    <div>
-    <p>4. How does your child interact with peers? Are there challenges in making friends?</p>
-    <input type="radio" id="yes" name="socialInteraction" value="yes" onChange={e => setSocialInteraction(e.target.value)} />
-    <label htmlFor="yes">Yes</label>
-    <input type="radio" id="no" name="socialInteraction" value="no" onChange={e => setSocialInteraction(e.target.value)} />
-    <label htmlFor="no">No</label>
-    </div>
     </div>
     <div>
         <h3>Repetitive Behavior</h3>
@@ -107,13 +93,7 @@ return (
     <label htmlFor="yes">Yes</label>
     <input type="radio" id="no" name="repetitiveBehavior" value="no" onChange={e => setRepetitiveBehavior(e.target.value)} />
     <label htmlFor="no">No</label></div>
-    <div>
-    <p>6. Are there specific routines or rituals that your child insists on maintaining?</p>
-    <input type="radio" id="yes" name="repetitiveBehavior" value="yes" onChange={e => setRepetitiveBehavior(e.target.value)} />
-    <label htmlFor="yes">Yes</label>
-    <input type="radio" id="no" name="repetitiveBehavior" value="no" onChange={e => setRepetitiveBehavior(e.target.value)} />
-    <label htmlFor="no">No</label>
-    </div></div>
+  </div>
     <div>
         <h3>Sensory Sensitivity</h3>
         <div>
@@ -122,13 +102,7 @@ return (
     <label htmlFor="yes">Yes</label>
     <input type="radio" id="no" name="sensorySensitivity" value="no" onChange={e => setSensorySensitivity(e.target.value)} />
     <label htmlFor="no">No</label>
-        </div>
-        <p> 8. How does your child react to changes in their environment?</p>
-        <input type="radio" id="yes" name="sensorySensitivity" value="yes" onChange={e => setSensorySensitivity(e.target.value)} />
-    <label htmlFor="yes">Yes</label>
-    <input type="radio" id="no" name="sensorySensitivity" value="no" onChange={e => setSensorySensitivity(e.target.value)} />
-    <label htmlFor="no">No</label>
-    </div>
+        </div> </div>
 <div>
 <h3> Language Development </h3>
 <div>
@@ -138,13 +112,6 @@ return (
     <input type="radio" id="no" name="languageDevelopment" value="no" onChange={e => setLanguageDevelopment(e.target.value)} />
     <label htmlFor="no">No</label>
 </div>
-<div>
-<p>10. Does your child use and understand language appropriately for their age?</p>
-<input type="radio" id="yes" name="languageDevelopment" value="yes" onChange={e => setLanguageDevelopment(e.target.value)} />
-    <label htmlFor="yes">Yes</label>
-    <input type="radio" id="no" name="languageDevelopment" value="no" onChange={e => setLanguageDevelopment(e.target.value)} />
-    <label htmlFor="no">No</label>
-    </div>
 </div>
 
 
