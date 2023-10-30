@@ -1,19 +1,26 @@
-import React from 'react';
+import AssesmentTest from './Assessment';
+import React, {useState} from 'react';
+
 
 const Assessment = () => {
+    const [showAssessment, setShowAssessment] = useState(false);
+
   return (
     <div>
       <div className="assessmenttitle"> 
         <h3> Assessment</h3>
       </div>
-      <div class="buttonsassessment">
+      <div className="buttonsassessment">
                 <div>
         <h3>English</h3>
-                <button onclick="" class="assessmentbutton">Begin Assessment</button>
-                </div>
+        <button onClick={() => setShowAssessment(true)} className="assessmentbutton">Begin Assessment</button>
+{showAssessment ? <AssesmentTest /> : null}
+                </div>        
+
+{/* when button is clicked it doubles everything in the assessment page need to look ovet that  */}
                 <div>
                     <h3>Español</h3>
-                    <button class="assessmentbutton">Iniciar el Assessment</button>
+                    <button className="assessmentbutton">Iniciar el Assessment</button>
                 </div>
                 </div>
       <div>
