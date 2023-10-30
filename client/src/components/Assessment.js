@@ -14,11 +14,11 @@ const Assessment = () => {
       <div className="buttonsassessment">
                 <div>
         <h3>English</h3>
-        <button onClick={() => setShowAssessment(true)} className="assessmentbutton">Begin Assessment</button>
-
+        <button type="button" onClick={() => setShowAssessment(true)} className="assessmentbutton">Begin Assessment</button>
                 </div>        
 
 {/* when button is clicked it doubles everything in the assessment page need to look ovet that  */}
+{/* I was able to fix that but now I am unable to get test to show up */}
                 <div>
                     <h3>Español</h3>
                     <button className="assessmentbutton">Iniciar el Assessment</button>
