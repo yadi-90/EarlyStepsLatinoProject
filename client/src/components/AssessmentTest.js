@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const AssesmentTest = () => {
+const AssessmentTest = () => {
 
 const [communicationSkills, setCommunicationSkills] = useState(0);  
 const [socialInteraction, setSocialInteraction] = useState(0);
@@ -25,6 +25,7 @@ const [InterestandFocus, setInterestandFocus] = useState(0);
 
 <form>
     <div>
+        <h1>Assessment Test</h1>
         <h3>Communication Skills</h3>
         <p> Does your child use gestures, eye contact, and facial expressions appropriately for their age?</p>
         <input type="radio" id="yes" name="communicationSkills" value="yes" onChange={e => setCommunicationSkills(e.target.value)} />
@@ -44,4 +45,4 @@ const [InterestandFocus, setInterestandFocus] = useState(0);
 
 }
 
-export default AssesmentTest;
+export default AssessmentTest;

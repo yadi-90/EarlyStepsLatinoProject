@@ -1,9 +1,10 @@
-import AssesmentTest from './Assessment';
+import AssessmentTest from './AssessmentTest';
 import React, {useState} from 'react';
 
 
 const Assessment = () => {
     const [showAssessment, setShowAssessment] = useState(false);
+
 
   return (
     <div>
@@ -14,7 +15,7 @@ const Assessment = () => {
                 <div>
         <h3>English</h3>
         <button onClick={() => setShowAssessment(true)} className="assessmentbutton">Begin Assessment</button>
-{showAssessment ? <AssesmentTest /> : null}
+
                 </div>        
 
 {/* when button is clicked it doubles everything in the assessment page need to look ovet that  */}
@@ -53,6 +54,7 @@ const Assessment = () => {
             <br></br>
 
       </div>
+      {showAssessment ? <AssessmentTest /> : null}
     </div>
   );
 }
