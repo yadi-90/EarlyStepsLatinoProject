@@ -79,7 +79,7 @@ return (
     <div>
         <h3>Social Interaction</h3>
         <div>
-        <p>3. Does your child engage in pretend play or imaginative activities?</p>
+        <p>2. Does your child engage in pretend play or imaginative activities?</p>
         <input type="radio" id="yes" name="socialInteraction" value="yes" onChange={e => setSocialInteraction(e.target.value)} />
     <label htmlFor="yes">Yes</label>
     <input type="radio" id="no" name="socialInteraction" value="no" onChange={e => setSocialInteraction(e.target.value)} />
@@ -88,7 +88,7 @@ return (
     <div>
         <h3>Repetitive Behavior</h3>
         <div>
-        <p>5. Does your child engage in repetitive behaviors, such as hand-flapping or rocking?</p>
+        <p>3. Does your child engage in repetitive behaviors, such as hand-flapping or rocking?</p>
         <input type="radio" id="yes" name="repetitiveBehavior" value="yes" onChange={e => setRepetitiveBehavior(e.target.value)} />
     <label htmlFor="yes">Yes</label>
     <input type="radio" id="no" name="repetitiveBehavior" value="no" onChange={e => setRepetitiveBehavior(e.target.value)} />
@@ -97,7 +97,7 @@ return (
     <div>
         <h3>Sensory Sensitivity</h3>
         <div>
-        <p>7. Does your child have sensitivities to light, sound, touch, or textures? </p>
+        <p>4. Does your child have sensitivities to light, sound, touch, or textures? </p>
         <input type="radio" id="yes" name="sensorySensitivity" value="yes" onChange={e => setSensorySensitivity(e.target.value)} />
     <label htmlFor="yes">Yes</label>
     <input type="radio" id="no" name="sensorySensitivity" value="no" onChange={e => setSensorySensitivity(e.target.value)} />
@@ -106,14 +106,163 @@ return (
 <div>
 <h3> Language Development </h3>
 <div>
-<p>9. Has your child's language development progressed appropriately for their age?</p>
-<input type="radio" id="yes" name="languageDevelopment" value="yes" onChange={e => setLanguageDevelopment(e.target.value)} />
+<p>5. Has your child's language development progressed appropriately for their age?</p>
+<input type="radio" id="yes" name="ResponsetoEmotions" value="yes" onChange={e => setLanguageDevelopment(e.target.value)} />
     <label htmlFor="yes">Yes</label>
-    <input type="radio" id="no" name="languageDevelopment" value="no" onChange={e => setLanguageDevelopment(e.target.value)} />
+    <input type="radio" id="no" name="ResponsetoEmotions" value="no" onChange={e => setLanguageDevelopment(e.target.value)} />
     <label htmlFor="no">No</label>
 </div>
 </div>
-
+<div>
+    <h3>Response to Emotions</h3>
+    <div>
+<p>How does your child respond to different emotions, both their own and others'?</p>
+<input type="radio" id="yes" name="languageDevelopment" value="yes" onChange={e => setResponsetoEmotions(e.target.value)} />
+    <label htmlFor="yes">Yes</label>
+    <input type="radio" id="no" name="languageDevelopment" value="no" onChange={e => setResponsetoEmotions(e.target.value)} />
+    <label htmlFor="no">No</label>
+    </div>
+</div>
+<div>
+<h3>Eye Contact:</h3>
+    <div>
+    <p>Does your child make appropriate eye contact during conversations?</p>  
+    <input type="radio" id="yes" name="EyeContact" value="yes" onChange={e => setEyeContact(e.target.value)} />
+    <label htmlFor="yes">Yes</label>
+    <input type="radio" id="no" name="EyeContact" value="no" onChange={e => setEyeContact(e.target.value)} />
+    <label htmlFor="no">No</label>
+    </div>
+</div>
+<div>
+<h3>PlaySkills</h3>
+    <div>
+    <p>Does your child play with other children?</p>  
+    <input type="radio" id="yes" name="PlaySkills" value="yes" onChange={e => setPlaySkills(e.target.value)} />
+    <label htmlFor="yes">Yes</label>
+    <input type="radio" id="no" name="PlaySkills" value="no" onChange={e => setPlaySkills(e.target.value)} />
+    <label htmlFor="no">No</label>
+    </div>
+</div>
+<div>
+<h3>Adaptability:</h3>
+    <div>
+    <p>Does your child adapt to changes in routine or unexpected events?</p>  
+    <input type="radio" id="yes" name="Adaptability" value="yes" onChange={e => setAdapability(e.target.value)} />
+    <label htmlFor="yes">Yes</label>
+    <input type="radio" id="no" name="Adaptability" value="no" onChange={e => setAdapability(e.target.value)} />
+    <label htmlFor="no">No</label>
+    </div>
+</div>
+<div>
+<h3>Joint Attention:</h3>
+    <div>
+    <p>Does your child share attention with others, such as pointing to objects of interest?</p> 
+    <input type="radio" id="yes" name="JointAttention" value="yes" onChange={e => setJointAttention(e.target.value)} />
+    <label htmlFor="yes">Yes</label>
+    <input type="radio" id="no" name="JointAttention" value="no" onChange={e => setJointAttention(e.target.value)} />
+    <label htmlFor="no">No</label> 
+    </div>
+</div>
+<div>
+<h3>Empathy:</h3>
+    <div>
+    <p>Does your child demonstrate empathy or understanding of others' feelings?</p>  
+    <input type="radio" id="yes" name="Empathy" value="yes" onChange={e => setEmpathy(e.target.value)} />
+    <label htmlFor="yes">Yes</label>
+    <input type="radio" id="no" name="Empathy" value="no" onChange={e => setEmpathy(e.target.value)} />
+    <label htmlFor="no">No</label>  
+    </div>
+</div>
+<div>
+<h3>Speech Development:</h3>
+    <div>
+    <p>Have there been any concerns regarding the development of speech sounds or articulation?</p>
+    <input type="radio" id="yes" name="SpeechDevelopment" value="yes" onChange={e => setSpeechDevelopment(e.target.value)} />
+    <label htmlFor="yes">Yes</label>
+    <input type="radio" id="no" name="SpeechDevelopment" value="no" onChange={e => setSpeechDevelopment(e.target.value)} />
+    <label htmlFor="no">No</label>  
+    </div>
+</div>
+<div>
+<h3>Motor Skills:</h3>
+    <div>
+    <p>Are your child's gross and fine motor skills developing?</p>
+    <input type="radio" id="yes" name="MotorSkills" value="yes" onChange={e => setMotorSkills(e.target.value)} />
+    <label htmlFor="yes">Yes</label>
+    <input type="radio" id="no" name="MotorSkills" value="no" onChange={e => setMotorSkills(e.target.value)} />
+    <label htmlFor="no">No</label>     
+    </div>
+</div>
+<div>
+<h3>Attention Span:</h3>
+    <div>
+    <p>Does your child focus on a specific task or activity</p>  
+    <input type="radio" id="yes" name="AttentionSpan" value="yes" onChange={e => setAttentionSpan(e.target.value)} />
+    <label htmlFor="yes">Yes</label>
+    <input type="radio" id="no" name="AttentionSpan" value="no" onChange={e => setAttentionSpan(e.target.value)} />
+    <label htmlFor="no">No</label>     
+    </div>
+</div>
+<div>
+    <h3>Response to Environment:</h3>
+    <div>
+    <p>Does your child respond to sensory stimuli in their environment?</p>  
+    <input type="radio" id="yes" name="ResponsetoEnvironment" value="yes" onChange={e => setResponsetoEnviorment(e.target.value)} />
+    <label htmlFor="yes">Yes</label>
+    <input type="radio" id="no" name="ResponsetoEnvironment" value="no" onChange={e => setResponsetoEnviorment(e.target.value)} />
+    <label htmlFor="no">No</label>    
+    </div>
+</div>
+<div>
+    <h3>Social Imagination:</h3>
+    <div>
+    <p>Does your child engage in imaginative play or create elaborate scenarios?</p>    
+    <input type="radio" id="yes" name="SocialImagination" value="yes" onChange={e => setSocialImagination(e.target.value)} />
+    <label htmlFor="yes">Yes</label>
+    <input type="radio" id="no" name="SocialImagination" value="no" onChange={e => setSocialImagination(e.target.value)} />
+    <label htmlFor="no">No</label> 
+    </div>
+</div>
+<div>
+<h3>Sleep Patterns:</h3>
+    <div>
+    <p>Does your child experience night-time restlessness or insomnia?</p>  
+    <input type="radio" id="yes" name="SleepPatterns" value="yes" onChange={e => setSleepPatterns(e.target.value)} />
+    <label htmlFor="yes">Yes</label>
+    <input type="radio" id="no" name="SleepPatterns" value="no" onChange={e => setSleepPatterns(e.target.value)} />
+    <label htmlFor="no">No</label>   
+    </div>
+</div>
+<div>
+<h3>Emotional Regulation:</h3>
+    <div>
+    <p>Does your child regulate their emotions, especially in challenging situations?</p> 
+    <input type="radio" id="yes" name="EmotionalRegulation" value="yes" onChange={e => setEmotionalRegulation(e.target.value)} />
+    <label htmlFor="yes">Yes</label>
+    <input type="radio" id="no" name="EmotionalRegulation" value="no" onChange={e => setEmotionalRegulation(e.target.value)} />
+    <label htmlFor="no">No</label>   
+    </div>
+</div>
+<div>
+<h3>Self-Awareness:</h3>
+    <div>
+    <p>Does your child have difficulty recognizing or expressing personal needs, such as hunger or discomfort?</p>   
+    <input type="radio" id="yes" name="SelfAwareness" value="yes" onChange={e => setSelfAwareness(e.target.value)} />
+    <label htmlFor="yes">Yes</label>
+    <input type="radio" id="no" name="SelfAwareness" value="no" onChange={e => setSelfAwareness(e.target.value)} />
+    <label htmlFor="no">No</label>  
+    </div>
+</div>
+<div>
+<h3>Interest and Focus:</h3>
+    <div>
+    <p>Are your child's primary interests limited in range, with a strong resistance to exploring new activities, and is their focus on these interests intense?</p> 
+    <input type="radio" id="yes" name="InterestandFocus" value="yes" onChange={e => setInterestandFocus(e.target.value)} />
+    <label htmlFor="yes">Yes</label>
+    <input type="radio" id="no" name="InterestandFocus" value="no" onChange={e => setInterestandFocus(e.target.value)} />
+    <label htmlFor="no">No</label>    
+    </div>
+</div>
 
 
 
