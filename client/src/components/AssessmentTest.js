@@ -263,22 +263,7 @@ return (
     <label htmlFor="no">No</label>    
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <button type="submit">Submit</button>
+    <button  className="AssessmentButton" type="submit">Submit</button>
 </form>
     </div>
     </div>

@@ -140,3 +140,20 @@ button.assessmentbutton{
   display:flex;
   border-radius: 10px;
 }
+.pagemainsettingassessment{
+  display:flex;
+justify-content: center;
+}
+.AssessmentButton{
+  background-color: #ffc525; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  text-shadow: #282c34;
+  display:flex;
+  margin-top: 50px;
+}
