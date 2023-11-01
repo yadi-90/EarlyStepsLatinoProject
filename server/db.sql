@@ -233,4 +233,60 @@ ALTER TABLE ONLY public.users
 --
 -- PostgreSQL database dump complete
 --
+-----------------------------------------------------------------------------------
+--
+-- Name: child; Type: TABLE; Schema: public; Owner: moralesfamily
+--
 
+CREATE TABLE public.child (
+    child_id integer NOT NULL,
+    birthday date,
+    gender character varying(255),
+    primary_language character varying(255),
+    assessment_score integer,
+    parent_id integer,
+    assessment_message text,
+    number_of_children integer,
+    user_id integer
+);
+
+ALTER TABLE public.child OWNER TO moralesfamily;
+
+--
+-- Name: child_id_seq; Type: SEQUENCE; Schema: public; Owner: moralesfamily
+--
+
+CREATE SEQUENCE public.child_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+ALTER TABLE public.child_id_seq OWNER TO moralesfamily;
+
+--
+-- Name: child_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: moralesfamily
+--
+
+ALTER SEQUENCE public.child_id_seq OWNED BY public.child.child_id;
+
+--
+-- Name: child id; Type: DEFAULT; Schema: public; Owner: moralesfamily
+--
+
+ALTER TABLE ONLY public.child ALTER COLUMN child_id SET DEFAULT nextval('public.child_id_seq'::regclass);
+
+--
+-- Name: child_id_seq; Type: SEQUENCE SET; Schema: public; Owner: moralesfamily
+--
+
+SELECT pg_catalog.setval('public.child_id_seq', 1, true);
+
+--
+-- Name: child child_pkey; Type: CONSTRAINT; Schema: public; Owner: moralesfamily
+--
+
+ALTER TABLE ONLY public.child
+    ADD CONSTRAINT child_pkey PRIMARY KEY (child_id);
