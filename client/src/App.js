@@ -11,6 +11,7 @@ import Assessment from './components/Assessment.js';
 import Resources from './components/Resources.js';
 import AssessmentTest from './components/AssessmentTest.js';
 import AssessmentTestSpanish from "./components/AssessmentTestSpanish.js";
+import TranslationButton from "./components/TranslationButton";
 
 
 
@@ -26,6 +27,7 @@ function App() {
   return (
     <div id="app" className="d-flex flex-column h-100">
       <NavBar />
+      <TranslationButton />
       <div className="container flex-grow-1">
         <Nav />
 
