@@ -20,6 +20,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(REACT_BUILD_DIR, 'index.html'));
 });
 
+
+
 app.get('/assessment', (req, res) => {
   res.json({ message: 'Hello from the assessment page' })
 
