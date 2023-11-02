@@ -76,17 +76,27 @@ app.post('/api/updateChildAssessmentScore', (req, res) => {
 //   }
 // });
 // this is posting new children int othe database
-app.post('/api/child', cors(), async (req, res) => {
-  const newChild = {
-    firstname: req.body.firstname
-  };
-  const result = await db.query(
-    'INSERT INTO child(firstname) VALUES($1) RETURNING *',
-    [newChild.firstname]
-  );
-  
-  console.log(result.rows[0]);
-  res.json(result.rows[0]);
+
+app.post('/api/child', async (req, res) => {
+  try {
+    const { firstname, gender, primary_language, birthday } = req.body;
+
+    // Validate input (you can use a library like 'validator' for this)
+    if (!firstname || !gender || !primary_language || !birthday) {
+      return res.status(400).json({ error: 'All fields are required' });
+    }
+
+    const result = await db.query(
+      'INSERT INTO child(firstname, gender, primary_language, birthday) VALUES($1, $2, $3, $4) RETURNING *',
+      [firstname, gender, primary_language, birthday]
+    );
+
+    console.log(result.rows[0]);
+    res.status(201).json(result.rows[0]);
+  } catch (error) {
+    console.error('Error inserting child:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
 
