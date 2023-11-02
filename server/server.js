@@ -35,7 +35,7 @@ app.get('/resources', (req, res)=>{
 
 app.post('/api/updateChildAssessmentScore', (req, res) => {
   const { childId, assessmentMessage } = req.body;
-  const sql = `UPDATE child_assessments SET score = \$1 WHERE child_id = \$2 AND assessment_message = \$3`;
+  const sql = `UPDATE assessment_message SET assessment_message = \$1 WHERE child_id = \$2 AND assessment_message = \$3`;
   const values = [childId, assessmentMessage];
   db.query(sql, values)
     .then((result) => {
@@ -79,16 +79,16 @@ app.post('/api/updateChildAssessmentScore', (req, res) => {
 
 app.post('/api/child', async (req, res) => {
   try {
-    const { firstname, gender, primary_language, birthday } = req.body;
+    const { firstname, gender, primary_language, birthday,assessment_message } = req.body;
 
     // Validate input (you can use a library like 'validator' for this)
-    if (!firstname || !gender || !primary_language || !birthday) {
+    if (!firstname || !gender || !primary_language || !birthday || !assessment_message) {
       return res.status(400).json({ error: 'All fields are required' });
     }
 
     const result = await db.query(
-      'INSERT INTO child(firstname, gender, primary_language, birthday) VALUES($1, $2, $3, $4) RETURNING *',
-      [firstname, gender, primary_language, birthday]
+      'INSERT INTO child(firstname, gender, primary_language, birthday, assessment_message) VALUES($1, $2, $3, $4, $5) RETURNING *',
+      [firstname, gender, primary_language, birthday,assessment_message]
     );
 
     console.log(result.rows[0]);
@@ -139,10 +139,10 @@ app.post('/api/child', async (req, res) => {
 
 app.put('/api/child/:childId', cors(), async (req, res) => {
   const childId = req.params.childId;
-  const updatedChild = { id: req.body.id, firstname: req.body.firstname};
-  const query = `UPDATE child SET  firstname=\$1 WHERE id=${childId} RETURNING *`;
+  const updatedChild = { id: req.body.id, firstname: req.body.firstname, gender: req.body.gender, primary_language: req.body.primary_language, birthday: req.body.birthday};
+  const query = `UPDATE child SET firstname=\\$1, gender=\\$2, primary_language=\\$3, birthday=\\$4 WHERE id=${childId} RETURNING *`;
 
-  const values = [ updatedChild.firstname];
+  const values = [ updatedChild.firstname, updatedChild.gender, updatedChild.primary_language, updatedChild.birthday];
   try {
     const updated = await db.query(query, values);
     res.send(updated.rows[0]);
@@ -150,7 +150,9 @@ app.put('/api/child/:childId', cors(), async (req, res) => {
     console.log(e);
     return res.status(400).json({e})
   }
- });
+});
+
+
 
 
 // delete request
@@ -162,7 +164,7 @@ app.put('/api/child/:childId', cors(), async (req, res) => {
 
 // });
 
-app.delete('/api/children/:childId', cors(), async (req, res) => {
+app.delete('/api/child/:childId', cors(), async (req, res) => {
   const childId = req.params.childId;
   await db.query('DELETE FROM child WHERE id=\$1', [childId]);
   res.status(200).end();
