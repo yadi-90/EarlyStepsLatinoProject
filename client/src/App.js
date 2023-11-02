@@ -2,7 +2,7 @@ import "./App.css";
 import { Routes, Route } from 'react-router-dom';
 import NavBar from "./components/nav-bar";
 // import Students from "./components/students";
-import Profile from "./components/profile";
+// import Profile from "./components/profile";
 import { useAuth0 } from '@auth0/auth0-react';
 import Loading from "./components/loading";
 import Nav from "./components/2ndNav.js";
@@ -22,6 +22,7 @@ function App() {
 
   return (
     <div id="app" className="d-flex flex-column h-100">
+
       <NavBar />
       <TranslationButton /> 
       <div className="container flex-grow-1">

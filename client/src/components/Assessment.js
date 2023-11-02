@@ -1,12 +1,7 @@
-import AssessmentTest from './AssessmentTest.js';
-import AssessmentTestSpanish from './AssessmentTestSpanish.js';
-import React, {useState} from 'react';
-
+import React from 'react';
 
 
 const Assessment = () => {
-    const [showAssessment, setShowAssessment] = useState(false);
-
 
   return (
     <div>
@@ -27,7 +22,7 @@ const Assessment = () => {
 {/* was able to solve problem just a syntax error on the name components being called */}
                 <div>
                     <h3>Español</h3>
-                    <button type="button" onClick={() => window.open('/AssessmentTestSpanish', '_blank')} className="assessmentbutton">Iniciar Evaluation</button>
+    <button type="button" onClick={() => window.open('/AssessmentTestSpanish', '_blank')} className="assessmentbutton">Iniciar Evaluation</button>
                 </div>
                 </div>
       <div>
@@ -56,12 +51,10 @@ const Assessment = () => {
             Remember, you are not alone in this journey. Your care and attention play a vital role in supporting your child's growth. If you have any questions or need assistance, feel free to reach out.
             </p>
             </div>
-            <br></br>
-            <br></br>
 
       </div>
-      {showAssessment ? <AssessmentTest /> : null}
-      {showAssessment ? <AssessmentTestSpanish /> : null}
+      {/* {showAssessment ? <AssessmentTest /> : null}
+      {showAssessment ? <AssessmentTestSpanish /> : null} */}
     </div>
   );
 }

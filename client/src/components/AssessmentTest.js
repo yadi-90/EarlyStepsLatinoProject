@@ -50,7 +50,7 @@ const handleSubmit = (event) => {
       InterestandFocus,
     ].filter(answer => answer === 'yes').length;
   
-    if (yesAnswers >= 0 && yesAnswers <= 5) {
+    if (yesAnswers >= 1 && yesAnswers <= 5) {
       window.alert('Low likelihood of significant developmental concerns.');
     } else if (yesAnswers > 5 && yesAnswers <= 10) {
       window.alert('Some areas of concern; further evaluation may be warranted.');

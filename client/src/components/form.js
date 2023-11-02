@@ -99,7 +99,9 @@ const Form = (props) => {
 
   const {initialChild = {id: null, 
                           firstname: "", 
-                        lastname: ""}} = props;
+                        gender: "",
+                        primary_language: "",
+                        birthday:""}} = props;
 
   const [child, setChild] = useState(initialChild);
 
@@ -173,6 +175,8 @@ const updateChild = (existingChild) => {
   };
 
   return (
+    <div>
+      <h2> Please Be Sure To Enter Your Child's Information before you begin Assessment</h2>
     <form onSubmit={handleSubmit}>
       <fieldset>
         <label>First Name</label>
@@ -188,7 +192,7 @@ const updateChild = (existingChild) => {
         <input
           type="text"
           id="add-child-Gender"
-          placeholder="Gender"
+          placeholder="F/M"
           required
           value={child.gender}
           onChange={handleGenderChange}
@@ -197,14 +201,14 @@ const updateChild = (existingChild) => {
         <input
           type="text"
           id="add-child-primary-language"
-          placeholder="Primary-Language"
+          placeholder="Language"
           required
           value={child.primary_language}
           onChange={handlePrimaryLanguageChange}
         />
                 <label>Birthday</label>
         <input
-          type="text"
+          type="date"
           id="add-child-Birthday"
           placeholder="Birthday"
           required
@@ -214,6 +218,7 @@ const updateChild = (existingChild) => {
       </fieldset>
       <button type="submit">{!child.id ? "ADD": "SAVE"}</button>
     </form>
+    </div>
   );
 };
 
