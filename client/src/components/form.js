@@ -108,9 +108,17 @@ const Form = (props) => {
     setChild((child) => ({ ...child, firstname }));
   };
 
-  const handleLastnameChange = (event) => {
-    const lastname = event.target.value;
-    setChild((child) => ({ ...child, lastname }));
+  const handleGenderChange = (event) => {
+    const gender = event.target.value;
+    setChild((child) => ({ ...child, gender }));
+  };
+  const handlePrimaryLanguageChange = (event) => {
+    const primary_language = event.target.value;
+    setChild((child) => ({ ...child, primary_language}));
+  };
+  const handleBirthdayChange = (event) => {
+    const birthday = event.target.value;
+    setChild((child) => ({ ...child, birthday }));
   };
 
   const postChild = (newChild) => {
@@ -176,14 +184,32 @@ const updateChild = (existingChild) => {
           value={child.firstname}
           onChange={handleNameChange}
         />
-        <label>Last Name</label>
+        <label>Gender</label>
         <input
           type="text"
-          id="add-child-lastname"
-          placeholder="Last Name"
+          id="add-child-Gender"
+          placeholder="Gender"
           required
-          value={child.lastname}
-          onChange={handleLastnameChange}
+          value={child.gender}
+          onChange={handleGenderChange}
+        />
+                <label>Primary Language</label>
+        <input
+          type="text"
+          id="add-child-primary-language"
+          placeholder="Primary-Language"
+          required
+          value={child.primary_language}
+          onChange={handlePrimaryLanguageChange}
+        />
+                <label>Birthday</label>
+        <input
+          type="text"
+          id="add-child-Birthday"
+          placeholder="Birthday"
+          required
+          value={child.birthday}
+          onChange={handleBirthdayChange}
         />
       </fieldset>
       <button type="submit">{!child.id ? "ADD": "SAVE"}</button>
