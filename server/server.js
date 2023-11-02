@@ -32,9 +32,9 @@ app.get('/resources', (req, res)=>{
 );
 
 app.post('/api/updateChildAssessmentScore', (req, res) => {
-  const { childId, assessmentId, score } = req.body;
-  const sql = `UPDATE child_assessments SET score = \$1 WHERE child_id = \$2 AND assessment_id = \$3`;
-  const values = [score, childId, assessmentId];
+  const { childId, assessmentMessage } = req.body;
+  const sql = `UPDATE child_assessments SET score = \$1 WHERE child_id = \$2 AND assessment_message = \$3`;
+  const values = [childId, assessmentMessage];
   db.query(sql, values)
     .then((result) => {
       res.json(result.rows);
@@ -45,10 +45,10 @@ app.post('/api/updateChildAssessmentScore', (req, res) => {
     });
  });
  // this is grabbing the children from the database
- app.get('/api/children', cors(), async (req, res) => {
+ app.get('/api/child', cors(), async (req, res) => {
   try {
-    const { rows: children } = await db.query('SELECT * FROM children');
-    res.send(children);
+    const { rows: child } = await db.query('SELECT * FROM child');
+    res.send(child);
   } catch (e) {
     return res.status(400).json({ e });
   }
@@ -74,16 +74,15 @@ app.post('/api/updateChildAssessmentScore', (req, res) => {
 //   }
 // });
 // this is posting new children int othe database
-app.post('/api/children', cors(), async (req, res) => {
+app.post('/api/child', cors(), async (req, res) => {
   const newChild = {
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
+    firstname: req.body.firstname
   };
-  console.log([newChild.firstname, newChild.lastname]);
   const result = await db.query(
-    'INSERT INTO children(firstname, lastname) VALUES(\$1, \$2) RETURNING *',
-    [newChild.firstname, newChild.lastname],
+    'INSERT INTO child(firstname) VALUES($1) RETURNING *',
+    [newChild.firstname]
   );
+  
   console.log(result.rows[0]);
   res.json(result.rows[0]);
 });
@@ -126,11 +125,12 @@ app.post('/api/children', cors(), async (req, res) => {
 //   }
 // })
 
-app.put('/api/children/:childId', cors(), async (req, res) => {
+app.put('/api/child/:childId', cors(), async (req, res) => {
   const childId = req.params.childId;
-  const updatedChild = { id: req.body.id, firstname: req.body.firstname, lastname: req.body.lastname};
-  const query = `UPDATE children SET lastname=\\$1, firstname=\\$2 WHERE id=${childId} RETURNING *`;
-  const values = [updatedChild.lastname, updatedChild.firstname];
+  const updatedChild = { id: req.body.id, firstname: req.body.firstname};
+  const query = `UPDATE child SET  firstname=\$1 WHERE id=${childId} RETURNING *`;
+
+  const values = [ updatedChild.firstname];
   try {
     const updated = await db.query(query, values);
     res.send(updated.rows[0]);
@@ -152,7 +152,7 @@ app.put('/api/children/:childId', cors(), async (req, res) => {
 
 app.delete('/api/children/:childId', cors(), async (req, res) => {
   const childId = req.params.childId;
-  await db.query('DELETE FROM children WHERE id=\\$1', [childId]);
+  await db.query('DELETE FROM child WHERE id=\$1', [childId]);
   res.status(200).end();
  });
 
@@ -201,7 +201,7 @@ app.post('/api/me', cors(), async (req, res) => {
   if(resultsEmail.rows[0]){
     console.log(`Thank you ${resultsEmail.rows[0].firstname} for comming back`)
   } else{
-  const query = 'INSERT INTO users(lastname, firstname, email, sub) VALUES(\$1, \$2, \$3, \$4) RETURNING *'
+    const query = 'INSERT INTO users(lastname, firstname, email, sub) VALUES(\$1, \$2, \$3, \$4) RETURNING *'
   const values = [newUser.lastname, newUser.firstname, newUser.email, newUser.sub]
   const result = await db.query(query, values);
   console.log(result.rows[0]);
