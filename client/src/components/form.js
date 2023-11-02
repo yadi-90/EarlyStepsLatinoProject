@@ -114,32 +114,46 @@ const Form = (props) => {
   };
 
   const postChild = (newChild) => {
-    return fetch("/api/children", {
+    return fetch("/api/child", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newChild),
     })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log("From the post ", data);
-        props.saveChild(data);
-      });
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Error posting child');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log("From the post ", data);
+      props.saveChild(data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   };
 
-  const updateChild = (existingChild) =>{
-    return fetch(`/api/children/${existingChild.id}`, {
-        method: 'PUT',
-        headers: {'Content-Type': 'application/json'}, 
-        body: JSON.stringify(existingChild)
-      }).then((response) => {
-          return response.json()
-      }).then((data) => {
-        console.log("From put request ", data);
-        props.saveChild(data);
-    });
-  }
+const updateChild = (existingChild) => {
+  return fetch(`/api/child/${existingChild.id}`, {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'}, 
+    body: JSON.stringify(existingChild)
+  })
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error('Error updating child');
+    }
+    return response.json()
+  })
+  .then((data) => {
+    console.log("From put request ", data);
+    props.saveChild(data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
 
   const handleSubmit = (e) => {
     e.preventDefault();

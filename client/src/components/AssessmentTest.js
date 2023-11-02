@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Form from './form';
 
 const AssessmentTest = () => {
 
@@ -62,6 +63,7 @@ const handleSubmit = (event) => {
 
 return (
     <div>
+        <Form />
         <div className="pagemainsettingassessment">
 <form onSubmit={handleSubmit} >
     <div>
