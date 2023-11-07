@@ -1,14 +1,14 @@
-// import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import React from 'react';
 
 const Home = () => {
-  // const location = useLocation();
+  const location = useLocation();
   
   return (
     <div>
-     {/* {location.pathname === '/' ? (
+     {location.pathname === '/' ? (
        <img className="mainimage" src="https://images.unsplash.com/photo-1616543791139-fdca422b7ef7?auto=format&fit=crop&q=80&w=2787&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="family" />
-     ) : null} */}
+     ) : null}
 <div className="maincontainer">
        
         <p>
@@ -26,6 +26,7 @@ EarlyStepsLatino is dedicated to enriching the lives of Latino families by offer
       <h1> Created by Yadira Morales</h1>
     </footer>
     </div>
+
   );
 };
 

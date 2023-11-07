@@ -33,19 +33,19 @@ app.get('/resources', (req, res)=>{
 }
 );
 
-app.post('/api/updateChildAssessmentScore', (req, res) => {
-  const { childId, assessmentMessage } = req.body;
-  const sql = `UPDATE assessment_message SET assessment_message = \$1 WHERE child_id = \$2 AND assessment_message = \$3`;
-  const values = [childId, assessmentMessage];
-  db.query(sql, values)
-    .then((result) => {
-      res.json(result.rows);
-    }) 
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ error: 'Something went wrong' });
-    });
- });
+// app.post('/api/updateChildAssessmentScore', (req, res) => {
+//   const { childId, assessmentMessage } = req.body;
+//   const sql = `UPDATE assessment_message SET assessment_message = \$1 WHERE child_id = \$2 AND assessment_message = \$3`;
+//   const values = [childId, assessmentMessage];
+//   db.query(sql, values)
+//     .then((result) => {
+//       res.json(result.rows);
+//     }) 
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json({ error: 'Something went wrong' });
+//     });
+//  });
  // this is grabbing the children from the database
  app.get('/api/child', cors(), async (req, res) => {
   try {
@@ -79,17 +79,18 @@ app.post('/api/updateChildAssessmentScore', (req, res) => {
 
 app.post('/api/child', async (req, res) => {
   try {
-    const { firstname, gender, primary_language, birthday,assessment_message } = req.body;
+    const { firstname, gender, primary_language,birthday  } = req.body;
 
     // Validate input (you can use a library like 'validator' for this)
-    if (!firstname || !gender || !primary_language || !birthday || !assessment_message) {
+    if (!firstname || !gender || !primary_language || !birthday) {
       return res.status(400).json({ error: 'All fields are required' });
     }
 
     const result = await db.query(
-      'INSERT INTO child(firstname, gender, primary_language, birthday, assessment_message) VALUES($1, $2, $3, $4, $5) RETURNING *',
-      [firstname, gender, primary_language, birthday,assessment_message]
-    );
+      'INSERT INTO child(firstname, gender, primary_language, birthday) VALUES(\$1, \$2, \$3, \$4) RETURNING *',
+      [firstname, gender, primary_language, birthday]
+     );
+     
 
     console.log(result.rows[0]);
     res.status(201).json(result.rows[0]);
