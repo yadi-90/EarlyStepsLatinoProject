@@ -11,7 +11,7 @@ import Assessment from './components/Assessment.js';
 import Resources from './components/Resources.js';
 import AssessmentTest from './components/AssessmentTest.js';
 import AssessmentTestSpanish from "./components/AssessmentTestSpanish.js";
-// import TranslationButton from "./components/TranslationButton";  // Import the TranslationButton component
+import TranslationButton from "./components/TranslationButton";  // Import the TranslationButton component
 
 function App() {
   const { isLoading } = useAuth0();
@@ -24,10 +24,10 @@ function App() {
     <div id="app" className="d-flex flex-column h-100">
 
       <NavBar />
-      {/* <TranslationButton />  */}
+      <TranslationButton /> 
       <div className="container flex-grow-1">
         <Nav />
-        {!user ? <span>Hello from Techtonica From DEV!!!</span> : <span>Hello <Link to="api/me">{user.name}</Link></span> }
+        {!user ? <span>Be sure to Login!!!</span> : <span>Hello <Link to="api/me">{user.name}</Link></span> }
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/assessment" element={<Assessment />} />
