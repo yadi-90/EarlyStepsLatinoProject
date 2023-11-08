@@ -157,3 +157,14 @@ justify-content: center;
   display:flex;
   margin-top: 50px;
 }
+.logobox{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+
+}
+.slogan{
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+}
