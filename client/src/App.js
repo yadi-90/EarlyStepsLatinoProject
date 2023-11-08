@@ -24,7 +24,8 @@ function App() {
     <div id="app" className="d-flex flex-column h-100">
 
       <NavBar />
-      <TranslationButton /> 
+      <div>
+      <TranslationButton /> </div>
       <div className="container flex-grow-1">
         <Nav />
         {!user ? <span>Be sure to Login!!!</span> : <span>Hello <Link to="api/me">{user.name}</Link></span> }
