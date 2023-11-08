@@ -20,6 +20,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(REACT_BUILD_DIR, 'index.html'));
 });
 
+
+
 app.get('/assessment', (req, res) => {
   res.json({ message: 'Hello from the assessment page' })
 
@@ -31,23 +33,32 @@ app.get('/resources', (req, res)=>{
 }
 );
 
-app.post('/api/updateChildAssessmentScore', (req, res) => {
-  const { childId, assessmentId, score } = req.body;
-  const sql = `UPDATE student_assessments SET score = $1 WHERE student_id = $2 AND assessment_id = $3`;
-  const values = [score, childId, assessmentId];
-  db.query(sql, values)
-    .then((result) => {
-      res.json(result.rows);
-    })  
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ error: 'Something went wrong' });
-    });
-});
+// app.post('/api/updateChildAssessmentScore', (req, res) => {
+//   const { childId, assessmentMessage } = req.body;
+//   const sql = `UPDATE assessment_message SET assessment_message = \$1 WHERE child_id = \$2 AND assessment_message = \$3`;
+//   const values = [childId, assessmentMessage];
+//   db.query(sql, values)
+//     .then((result) => {
+//       res.json(result.rows);
+//     }) 
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json({ error: 'Something went wrong' });
+//     });
+//  });
+ // this is grabbing the children from the database
+ app.get('/api/child', cors(), async (req, res) => {
+  try {
+    const { rows: child } = await db.query('SELECT * FROM child');
+    res.send(child);
+  } catch (e) {
+    return res.status(400).json({ e });
+  }
+ });
 
 
 // create the get request
-app.get('/api/students', cors(), async (req, res) => {
+// app.get('/api/students', cors(), async (req, res) => {
   // const STUDENTS = [
 
   //     { id: 1, firstName: 'Lisa', lastName: 'Lee' },
@@ -57,60 +68,108 @@ app.get('/api/students', cors(), async (req, res) => {
   //     { id: 5, firstName: 'Andrea', lastName: 'Trejo' },
   // ];
   // res.json(STUDENTS);
+//   try {
+//     const { rows: students } = await db.query('SELECT * FROM students');
+//     res.send(students);
+//   } catch (e) {
+//     return res.status(400).json({ e });
+//   }
+// });
+// this is posting new children int othe database
+
+app.post('/api/child', async (req, res) => {
   try {
-    const { rows: students } = await db.query('SELECT * FROM students');
-    res.send(students);
-  } catch (e) {
-    return res.status(400).json({ e });
+    const { firstname, gender, primary_language,birthday  } = req.body;
+
+    // Validate input (you can use a library like 'validator' for this)
+    if (!firstname || !gender || !primary_language || !birthday) {
+      return res.status(400).json({ error: 'All fields are required' });
+    }
+
+    const result = await db.query(
+      'INSERT INTO child(firstname, gender, primary_language, birthday) VALUES(\$1, \$2, \$3, \$4) RETURNING *',
+      [firstname, gender, primary_language, birthday]
+     );
+     
+
+    console.log(result.rows[0]);
+    res.status(201).json(result.rows[0]);
+  } catch (error) {
+    console.error('Error inserting child:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
+
 // create the POST request
-app.post('/api/students', cors(), async (req, res) => {
-  const newUser = {
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-  };
-  console.log([newUser.firstname, newUser.lastname]);
-  const result = await db.query(
-    'INSERT INTO students(firstname, lastname) VALUES($1, $2) RETURNING *',
-    [newUser.firstname, newUser.lastname],
-  );
-  console.log(result.rows[0]);
-  res.json(result.rows[0]);
-});
+// app.post('/api/students', cors(), async (req, res) => {
+//   const newUser = {
+//     firstname: req.body.firstname,
+//     lastname: req.body.lastname,
+//   };
+//   console.log([newUser.firstname, newUser.lastname]);
+//   const result = await db.query(
+//     'INSERT INTO students(firstname, lastname) VALUES($1, $2) RETURNING *',
+//     [newUser.firstname, newUser.lastname],
+//   );
+//   console.log(result.rows[0]);
+//   res.json(result.rows[0]);
+// });
 
 //A put request - Update a student 
-app.put('/api/students/:studentId', cors(), async (req, res) =>{
-  console.log(req.params);
-  //This will be the id that I want to find in the DB - the student to be updated
-  const studentId = req.params.studentId
-  const updatedStudent = { id: req.body.id, firstname: req.body.firstname, lastname: req.body.lastname}
-  console.log("In the server from the url - the student id", studentId);
-  console.log("In the server, from the react - the student to be edited", updatedStudent);
-  // UPDATE students SET lastname = "something" WHERE id="16";
-  const query = `UPDATE students SET lastname=$1, firstname=$2 WHERE id=${studentId} RETURNING *`;
-  const values = [updatedStudent.lastname, updatedStudent.firstname];
+// app.put('/api/students/:studentId', cors(), async (req, res) =>{
+//   console.log(req.params);
+//   //This will be the id that I want to find in the DB - the student to be updated
+//   const studentId = req.params.studentId
+//   const updatedStudent = { id: req.body.id, firstname: req.body.firstname, lastname: req.body.lastname}
+//   console.log("In the server from the url - the student id", studentId);
+//   console.log("In the server, from the react - the student to be edited", updatedStudent);
+//   // UPDATE students SET lastname = "something" WHERE id="16";
+//   const query = `UPDATE students SET lastname=$1, firstname=$2 WHERE id=${studentId} RETURNING *`;
+//   const values = [updatedStudent.lastname, updatedStudent.firstname];
+//   try {
+//     const updated = await db.query(query, values);
+//     console.log(updated.rows[0]);
+//     res.send(updated.rows[0]);
+
+//   }catch(e){
+//     console.log(e);
+//     return res.status(400).json({e})
+//   }
+// })
+
+app.put('/api/child/:childId', cors(), async (req, res) => {
+  const childId = req.params.childId;
+  const updatedChild = { id: req.body.id, firstname: req.body.firstname, gender: req.body.gender, primary_language: req.body.primary_language, birthday: req.body.birthday};
+  const query = `UPDATE child SET firstname=\\$1, gender=\\$2, primary_language=\\$3, birthday=\\$4 WHERE id=${childId} RETURNING *`;
+
+  const values = [ updatedChild.firstname, updatedChild.gender, updatedChild.primary_language, updatedChild.birthday];
   try {
     const updated = await db.query(query, values);
-    console.log(updated.rows[0]);
     res.send(updated.rows[0]);
-
-  }catch(e){
+  } catch(e) {
     console.log(e);
     return res.status(400).json({e})
   }
-})
-
-// delete request
-app.delete('/api/students/:studentId', cors(), async (req, res) =>{
-  const studentId = req.params.studentId;
-  //console.log("From the delete request-url", req.params);
-  await db.query('DELETE FROM students WHERE id=$1', [studentId]);
-  res.status(200).end();
-
 });
 
+
+
+
+// delete request
+// app.delete('/api/students/:studentId', cors(), async (req, res) =>{
+//   const studentId = req.params.studentId;
+//   //console.log("From the delete request-url", req.params);
+//   await db.query('DELETE FROM students WHERE id=$1', [studentId]);
+//   res.status(200).end();
+
+// });
+
+app.delete('/api/child/:childId', cors(), async (req, res) => {
+  const childId = req.params.childId;
+  await db.query('DELETE FROM child WHERE id=\$1', [childId]);
+  res.status(200).end();
+ });
 
 // create the POST request for a new user
 // CREATE TABLE users (
@@ -119,23 +178,47 @@ app.delete('/api/students/:studentId', cors(), async (req, res) =>{
 // 	firstname varchar(255),
 //     email varchar(255), 
 //     sub varchar(255));
+
+
+// app.post('/api/me', cors(), async (req, res) => {
+//   const newUser = {
+//     lastname: req.body.family_name,
+//     firstname: req.body.given_name,
+//     email: req.body.email,
+//     sub: req.body.sub
+
+//   }
+//   //console.log(newUser);
+
+//   const queryEmail = 'SELECT * FROM users WHERE email=$1 LIMIT 1';
+//   const valuesEmail = [newUser.email]
+//   const resultsEmail = await db.query(queryEmail, valuesEmail);
+//   if(resultsEmail.rows[0]){
+//     console.log(`Thank you ${resultsEmail.rows[0].firstname} for comming back`)
+//   } else{
+//   const query = 'INSERT INTO users(lastname, firstname, email, sub) VALUES($1, $2, $3, $4) RETURNING *'
+//   const values = [newUser.lastname, newUser.firstname, newUser.email, newUser.sub]
+//   const result = await db.query(query, values);
+//   console.log(result.rows[0]);
+
+//   }
+
+// });
+
 app.post('/api/me', cors(), async (req, res) => {
   const newUser = {
     lastname: req.body.family_name,
     firstname: req.body.given_name,
     email: req.body.email,
     sub: req.body.sub
-
   }
-  //console.log(newUser);
-
   const queryEmail = 'SELECT * FROM users WHERE email=$1 LIMIT 1';
   const valuesEmail = [newUser.email]
   const resultsEmail = await db.query(queryEmail, valuesEmail);
   if(resultsEmail.rows[0]){
     console.log(`Thank you ${resultsEmail.rows[0].firstname} for comming back`)
   } else{
-  const query = 'INSERT INTO users(lastname, firstname, email, sub) VALUES($1, $2, $3, $4) RETURNING *'
+    const query = 'INSERT INTO users(lastname, firstname, email, sub) VALUES($1, $2, $3, $4) RETURNING *'
   const values = [newUser.lastname, newUser.firstname, newUser.email, newUser.sub]
   const result = await db.query(query, values);
   console.log(result.rows[0]);
@@ -143,8 +226,6 @@ app.post('/api/me', cors(), async (req, res) => {
   }
 
 });
-
-
 
 // console.log that your server is up and running
 app.listen(PORT, () => {

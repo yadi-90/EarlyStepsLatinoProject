@@ -1,27 +1,28 @@
-import AssessmentTest from './AssessmentTest';
-import React, {useState} from 'react';
+import React from 'react';
 
 
 const Assessment = () => {
-    const [showAssessment, setShowAssessment] = useState(false);
-
 
   return (
     <div>
+
       <div className="assessmenttitle"> 
         <h3> Assessment</h3>
       </div>
       <div className="buttonsassessment">
                 <div>
         <h3>English</h3>
-        <button onClick={() => setShowAssessment(true)} className="assessmentbutton">Begin Assessment</button>
-
+        <button type="button" onClick={() => window.open('/AssessmentTest', '_blank')} className="assessmentbutton">Begin Assessment</button>
+{/* https://stackoverflow.com/questions/30202755/react-router-open-link-in-new-tab */}
+{/* i checked other resources to make sure I can have a new window open when the button is press */}
                 </div>        
 
 {/* when button is clicked it doubles everything in the assessment page need to look ovet that  */}
+{/* I was able to fix that but now I am unable to get test to show up */}
+{/* was able to solve problem just a syntax error on the name components being called */}
                 <div>
                     <h3>Español</h3>
-                    <button className="assessmentbutton">Iniciar el Assessment</button>
+    <button type="button" onClick={() => window.open('/AssessmentTestSpanish', '_blank')} className="assessmentbutton">Iniciar Evaluation</button>
                 </div>
                 </div>
       <div>
@@ -33,7 +34,7 @@ const Assessment = () => {
           </p>
           <h1>Instructions:</h1>
           <ol>
-            <li><bold>Prepare a Quiet Environment:</bold>Find a quiet and comfortable space where you and your child can focus without distractions.</li>
+            <li>Prepare a Quiet Environment:Find a quiet and comfortable space where you and your child can focus without distractions.</li>
             <li>Gather Necessary Materials:Have any materials, toys, or items mentioned in the assessment readily available.</li>
             <li>Choose a Time When Your Child is Calm:Opt for a time when your child is typically calm and alert. Avoid times when they are hungry, tired, or irritable.</li>
             <li>Engage with Your Child:Encourage your child to participate in the activities outlined in the assessment. Make it a positive and engaging experience.</li>
@@ -50,11 +51,10 @@ const Assessment = () => {
             Remember, you are not alone in this journey. Your care and attention play a vital role in supporting your child's growth. If you have any questions or need assistance, feel free to reach out.
             </p>
             </div>
-            <br></br>
-            <br></br>
 
       </div>
-      {showAssessment ? <AssessmentTest /> : null}
+      {/* {showAssessment ? <AssessmentTest /> : null}
+      {showAssessment ? <AssessmentTestSpanish /> : null} */}
     </div>
   );
 }
