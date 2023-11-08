@@ -178,6 +178,8 @@ app.delete('/api/child/:childId', cors(), async (req, res) => {
 // 	firstname varchar(255),
 //     email varchar(255), 
 //     sub varchar(255));
+
+
 // app.post('/api/me', cors(), async (req, res) => {
 //   const newUser = {
 //     lastname: req.body.family_name,
@@ -210,13 +212,13 @@ app.post('/api/me', cors(), async (req, res) => {
     email: req.body.email,
     sub: req.body.sub
   }
-  const queryEmail = 'SELECT * FROM users WHERE email=\\$1 LIMIT 1';
+  const queryEmail = 'SELECT * FROM users WHERE email=$1 LIMIT 1';
   const valuesEmail = [newUser.email]
   const resultsEmail = await db.query(queryEmail, valuesEmail);
   if(resultsEmail.rows[0]){
     console.log(`Thank you ${resultsEmail.rows[0].firstname} for comming back`)
   } else{
-    const query = 'INSERT INTO users(lastname, firstname, email, sub) VALUES(\$1, \$2, \$3, \$4) RETURNING *'
+    const query = 'INSERT INTO users(lastname, firstname, email, sub) VALUES($1, $2, $3, $4) RETURNING *'
   const values = [newUser.lastname, newUser.firstname, newUser.email, newUser.sub]
   const result = await db.query(query, values);
   console.log(result.rows[0]);
