@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route,Link } from 'react-router-dom';
 import NavBar from "./components/nav-bar";
 // import Students from "./components/students";
 // import Profile from "./components/profile";
@@ -27,7 +27,7 @@ function App() {
       {/* <TranslationButton />  */}
       <div className="container flex-grow-1">
         <Nav />
-
+        {!user ? <span>Hello from Techtonica From DEV!!!</span> : <span>Hello <Link to="api/me">{user.name}</Link></span> }
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/assessment" element={<Assessment />} />
@@ -43,18 +43,4 @@ function App() {
 export default App;
 
 
-      {/* {!user ? <span>Hello from Techtonica From DEV!!!</span> : <span>Hello <Link to="api/me">{user.name}</Link></span> } */}
-      {/* <Routes>
-      <Route path="/" element={<Students user={user}/>} />
-      <Route path="api/me" element={<Profile user={user}/>} />
-      </Routes> */}
-      {/* </div>
-      <div>
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/assessment" element={<Assessment />}></Route>
-            <Route path="/resources" element={<Resources />}></Route>
-          </Routes>
-        </Router> */}
+
