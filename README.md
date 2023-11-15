@@ -1,32 +1,57 @@
-### Template for an Express and React App Project
-Create full-stack apps with React and Express. Run your client and server, and do a restart of your database to have a full-stack project working in minutes.
+# Early Steps Latino
 
-# Step-by-Step Instructions: Using This Template to Start Your Project
+![EarlyStepsLatino] (./public/EarlyStepsLatinomainpage.png)
+
+## Project Overview
+
+Early Steps Latino is an aplication designed to provide resources for Latino Families navigating the world of autism. The app foucses on delivering information and assessment in both Spanish and English to facilitate early intervention for children.
+
+## Table of Contents
+
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+- [Usage](#usage)
+  - [Assessment](#assessment)
+  - [Resources](#resources)
+- [Tech Stack](#tech-stack)
+- [Future Features](#future-features)
+
+
+
+## Getting Started
+
+# Installation
 You can follow these instructions and code along with the video - [setup instructions working](https://www.dropbox.com/s/tthmdat3n3vp3be/SettingUpTemplate.mov?dl=0)
 
 ### To create the whole project
-1. Go to your source directory in your Terminal and run the command `git clone [https://github.com/Yosolita1978/React-Express-PairProgramming.git NAMENEWDIRECTORY](https://github.com/Techtonica/ProjectCRUDTemplate.git)`
+1. Go to your source directory in your Terminal and run the command `git clone [(https://github.com/yadi-90/EarlyStepsLatinoProject.git)]`
 ![You will see something like this in your terminal.](https://github.com/Yosolita1978/screenshoots/blob/main/template/Screen%20Shot%202022-03-20%20at%207.50.46%20PM.png?raw=true)
 
 2. To clean the original git history from your folder, run the command `rm -rf .git` (you don't want to work with the forked git of the owner of this template)
 
 3. Run the command `git init` to start your git repository 
-![You will see something like this in your terminal.](https://github.com/Yosolita1978/screenshoots/blob/main/template/Screen%20Shot%202022-10-30%20at%207.21.22%20PM.png?raw=true)
 
-### To install, set up, and work on the server side
-4. Go to the server folder in the project (`cd server`) and run the command `npm install`
-5. Inside your server folder, create a .env file with `touch .env`
-6. Inside your server folder, open the file `.env.example` and copy the file there. 
-7. Inside your .env file, paste the string from .env.example and change the variables with the values from the project. For this template, the name of your database is `techtonica1`.
-![Your .env file should look like this.](https://github.com/Yosolita1978/screenshoots/blob/main/template/Screen%20Shot%202022-10-30%20at%207.24.50%20PM.png?raw=true)
+4. Once the app is installed in visual code, type npm start in the client and server now. Both Servers should now run with 'npm run start'.
 
-8.  To restore the database dump file that the project already contains, just run the command `psql -U postgres -f db.sql` in your Terminal. Make sure that you have your Postgres password on hand as the psql console will ask you for it. If you configured your Postgres without a password, just run the command `psql -f db.sql`
-9.  Run the command `npm start` to run your server and it should look like this: 
-![You will something like this in your terminal.](https://github.com/Yosolita1978/screenshoots/blob/main/template/Screen%20Shot%202022-10-30%20at%207.28.12%20PM.png?raw=true)
+## Usage
+Assessment
+The assessment tool allows parents to evaluate whether their child may benefit from early intervention or exhibits signs of being on the autism spectrum. Users can navigate to the assessment section and answer a series of questions.
 
-### To work on your frontend
+## Resources
+The app provides valuable resources, including articles, guides, and support networks, tailored to the needs of Latino families dealing with autism.
 
-10. Go to the client folder (`cd ..` and `cd client`) and run the command `npm install`
-11. Both servers should now run with `npm start`
-12. Go to localhost:3000 and you should see something like this:
-![You will something like this in your terminal.](https://github.com/Yosolita1978/screenshoots/blob/main/template/Screen%20Shot%202022-10-30%20at%207.30.21%20PM.png?raw=true)
+## Tech Stack
+Frontend: React
+Backend: Node.js, Express
+Database: PostgreSQL
+Languages: JavaScript (ES6+)
+## Future Feautures
+
+* User Accounts and Profiles: Allow users to create accounts to save assessment results, track progress, and receive personalized recommendations and resources based on their child's development.
+* Progress Tracking: Develop a feature that allows parents to track their child's developmental progress over time. This could include visual charts and summaries to help parents understand their child's growth.
+* Expanded Resource Library: Continuously update and expand the resource library with articles, videos, and guides that cover a wide range of topics related to autism, parenting, and early intervention.
+
+## Links
+
+* Pitch: https://www.canva.com/design/DAFx2KVpPUQ/cOgSo66_LpT8xx8OSUXVow/edit?utm_content=DAFx2KVpPUQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
