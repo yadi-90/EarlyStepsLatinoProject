@@ -1,6 +1,6 @@
 # Early Steps Latino
 
-![EarlyStepsLatino](./public/EarlyStepsLatinomainpage.png)
+![EarlyStepsLatino logo](./public/LogoLatino.png)
 
 ## Project Overview
 
