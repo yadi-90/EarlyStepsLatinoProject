@@ -12,6 +12,7 @@ import Resources from './components/Resources.js';
 import AssessmentTest from './components/AssessmentTest.js';
 import AssessmentTestSpanish from "./components/AssessmentTestSpanish.js";
 import TranslationButton from "./components/TranslationButton";  // Import the TranslationButton component
+import Logo from "./components/Logo";
 
 function App() {
   const { isLoading } = useAuth0();
@@ -24,7 +25,16 @@ function App() {
     <div id="app" className="d-flex flex-column h-100">
 
       <NavBar />
-      <TranslationButton /> 
+
+        <div className="logo">
+      <Logo />
+      </div>
+      <div className="slogan">
+      <p>Grow together, Learn Together</p>
+      </div>
+
+      <div>
+      <TranslationButton /> </div>
       <div className="container flex-grow-1">
         <Nav />
         {!user ? <span>Be sure to Login!!!</span> : <span>Hello <Link to="api/me">{user.name}</Link></span> }

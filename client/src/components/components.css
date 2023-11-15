@@ -14,3 +14,8 @@
 	align-items: baseline;
 	align-content: stretch;
 }
+.logo{
+    height:200px;
+    display: flex;
+    justify-content: center;
+}
